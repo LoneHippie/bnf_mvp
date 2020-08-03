@@ -153,6 +153,9 @@ body {
 .u-center {
   margin: 0 auto !important; }
 
+.u-padding-bottom {
+  padding-bottom: 10rem; }
+
 .u-margin-bottom-big {
   margin-bottom: 8rem !important; }
 
@@ -171,8 +174,11 @@ body {
 .u-margin-left {
   margin-left: 14rem !important; }
 
-.u-margin-top-neg-big {
+.u-margin-top-neg-medium {
   margin-top: -8rem; }
+
+.u-margin-top-neg-big {
+  margin-top: -14rem; }
 
 .u-margin-button {
   margin-top: 5rem;
@@ -594,7 +600,7 @@ body {
     color: #999; }
 
 .form__group:not(:last-child) {
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem; }
 
 .form__label {
   display: block;
@@ -609,46 +615,6 @@ body {
   visibility: hidden;
   transform: translateY(-4rem);
   transition: all 10ms; }
-
-.form__radio-group {
-  width: 49%;
-  display: inline-block; }
-
-.form__radio-input {
-  display: none; }
-
-.form__radio-label {
-  position: relative;
-  font-size: 1.9rem;
-  padding-left: 4rem;
-  cursor: pointer; }
-
-.form__radio-button {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: -0.4rem;
-  height: 3rem;
-  width: 3rem;
-  border: 5px solid #0c7b93;
-  border-radius: 50%; }
-  .form__radio-button::after {
-    content: "";
-    display: block;
-    height: 1.3rem;
-    width: 1.3rem;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.2);
-    background-color: #0c7b93;
-    opacity: 0;
-    transition: all 200ms; }
-
-.form__radio-input:checked ~ .form__radio-label .form__radio-button:after {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1); }
 
 .header {
   height: 95vh;
@@ -669,7 +635,8 @@ body {
     left: 4rem;
     animation: logoDrop 1500ms ease-out; }
   .header__logo {
-    height: 5rem; }
+    height: 14rem;
+    border-radius: 100%; }
   .header__text-box {
     position: absolute;
     top: 40%;
@@ -868,7 +835,7 @@ body {
     display: inline-block;
     width: 3rem;
     height: 2px;
-    background-color: #333; }
+    background-color: #27496d; }
   .navigation__icon::before, .navigation__icon::after {
     content: "";
     position: absolute;
@@ -948,16 +915,22 @@ body {
   position: relative;
   padding: 15rem 0rem; }
 
-.section-booking {
-  padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, #00a8cc, #0c7b93); }
+.section-contact {
+  position: relative;
+  padding: 20rem 0;
+  padding-top: 35rem;
+  margin-top: -20rem;
+  background: linear-gradient(to bottom left, rgba(0, 168, 204, 0.3), rgba(12, 123, 147, 0.57), rgba(12, 123, 147, 0.85)), url(../img/background-rep-concrete.png);
+  z-index: 1; }
 
-.book {
-  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.85) 50%, transparent 50%), url(../img/nat-10.jpg);
-  background-size: 100%;
-  border-radius: 3px;
-  box-shadow: 0rem 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  height: 50rem; }
-  .book__form {
+.contact {
+  margin: 0 8rem;
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.85) 50%, transparent 50%), url(../img/background-ice4.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+  box-shadow: 0rem 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  .contact__form {
     width: 50%;
+    height: 100%;
     padding: 6rem; }
