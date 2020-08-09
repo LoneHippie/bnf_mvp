@@ -86,6 +86,9 @@ body {
   color: #fff;
   text-transform: uppercase;
   margin-bottom: 6rem; }
+  @media (max-width: 30.3125em) {
+    .heading-primary {
+      margin-bottom: 10rem; } }
   .heading-primary--main {
     display: block;
     font-family: "Montserrat", sans-serif;
@@ -94,6 +97,11 @@ body {
     letter-spacing: 1.2rem;
     animation-name: moveInLeft;
     animation-duration: 2000ms; }
+    @media (max-width: 30.3125em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 8rem;
+        margin-bottom: 4rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
@@ -101,6 +109,10 @@ body {
     letter-spacing: 1.1rem;
     animation-name: moveInRight;
     animation-duration: 2000ms; }
+    @media (max-width: 30.3125em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem;
+        font-size: 3.3rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -332,13 +344,34 @@ body {
       left: 0rem;
       top: -1rem;
       z-index: 11; }
+      @media (max-width: 59em) {
+        .composition__photo--p1 {
+          left: -8rem; } }
+      @media (max-width: 26.875em) {
+        .composition__photo--p1 {
+          left: -11rem; } }
     .composition__photo--p2 {
       right: 1rem;
       top: 1.5rem;
       z-index: 12; }
+      @media (max-width: 59em) {
+        .composition__photo--p2 {
+          right: -5rem; } }
+      @media (max-width: 40.625em) {
+        .composition__photo--p2 {
+          right: -8rem; } }
+      @media (max-width: 26.875em) {
+        .composition__photo--p2 {
+          right: -15rem; } }
     .composition__photo--p3 {
       left: 15%;
       top: 4rem; }
+      @media (max-width: 59em) {
+        .composition__photo--p3 {
+          top: 5.5rem; } }
+      @media (max-width: 26.875em) {
+        .composition__photo--p3 {
+          top: 6rem; } }
     .composition__photo:hover {
       transform: scale(1.05) translateY(-5px);
       box-shadow: 0rem 2.5rem 4rem rgba(0, 0, 0, 0.5);
@@ -486,6 +519,9 @@ body {
     @media (max-width: 30.3125em) {
       .pop-up__paragraph {
         font-size: 2.5rem; } }
+    @media (max-width: 23.75em) {
+      .pop-up__paragraph {
+        font-size: 2.25rem; } }
     .pop-up__paragraph--primary {
       color: #0c7b93; }
     .pop-up__paragraph--unrestricted {
@@ -537,6 +573,9 @@ body {
       margin-top: 15rem;
       width: 52.5%;
       font-size: 2.3rem; } }
+  @media (max-width: 23.75em) {
+    .regimin-example {
+      margin-top: 3rem; } }
   .regimin-example:hover {
     cursor: default; }
   .regimin-example__title {
@@ -591,6 +630,8 @@ body {
     .team {
       margin-top: 3rem;
       width: 80%;
+      font-size: 1.3rem;
+      padding: 2.2rem;
       transform: skewX(-8deg);
       background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 34.5%, transparent 35%), linear-gradient(to bottom left, rgba(0, 168, 204, 0.9), rgba(39, 73, 109, 0.95)); } }
   .team:hover .team__caption {
