@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/survey.css">
+    <link rel="stylesheet" href="css/icon-font.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title>Spencer MPV 2 - Survey</title>
+</head>
+<body>
+    
+    <div class="navigation">
+
+        <input type="checkbox" class="navigation__checkbox" id="nav-toggle">
+        
+        <label for="nav-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link">About BNF</a></li>
+                <li class="navigation__item"><a href="survey.html" class="navigation__link">Fitness Survey</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Payment Options</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Reviews</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Contact Us</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <main>
+
+        <div class="bg-gradient"></div>
+        <div class="bg-video">
+            <video class="bg-video__content" autoplay muted loop>
+                <source src="img/video-lines-high.mp4" type="video/mp4">
+                <source src="img/video-lines-high.webm" type="video/webm">
+                Your browser is not supported
+            </video>
+        </div>
+
+        <div class="u-center-text u-pad-heading">
+            <h1 class="heading-survey">
+                BNF Fitness Survey
+            </h1>
+        </div>
+
+        <section class="survey">
+
+            <section class="survey-title active">
+                <h2 class="heading-secondary heading-secondary--white">Personal Information</h2>
+            </section>
+
+            <section class="survey-title">
+                <h2 class="heading-secondary heading-secondary--white">Personal Goals and Fitness</h2>
+            </section>
+
+            <section class="survey-tracker">
+                <div class="survey-tracker__blip"></div>
+                <div class="survey-tracker__blip"></div>
+                <div class="survey-tracker__blip"></div>
+                <div class="survey-tracker__blip"></div>
+                <div class="survey-tracker__blip"></div>
+                <div class="survey-tracker__blip"></div>
+            </section>
+
+            <section class="survey-body">
+
+                <article class="question" id="q-0">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            What's your age?
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">Your age will be used to help determine how we personally shape workouts to fit you</p>
+
+                    <div class="question__btn-container">
+                        <button class="btn btn--white btn--animated btn-q0">Under 20</button>
+                        <button class="btn btn--white btn--animated btn-q0">20 - 30</button>
+                        <button class="btn btn--white btn--animated btn-q0">30 - 40</button>
+                        <button class="btn btn--white btn--animated btn-q0">40 - 50</button>
+                        <button class="btn btn--white btn--animated btn-q0">50 - 60</button>
+                        <button class="btn btn--white btn--animated btn-q0">Over 60</button>
+                    </div>
+
+                </article>
+
+                <article class="question" id="q-1">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            What's your height and weight?
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">Alongside age and personal fitness experience, height and weight greatly helps us get an inital idea of how to better tailor your workout</p>
+
+                    <div class="question__input-container active" id="input-container-imperial">
+
+                        <section class="section-height u-margin-bottom-small">
+
+                            <input type="number" onkeydown="return false" min="0" max="8" class="question--height question--height--feet" id="height-feet">
+                            <label for="height-feet">ft</label>
+
+                            <input type="number" onkeydown="return false" min="0" max="11" class="question--height question--height--inch" id="height-inch">
+                            <label for="height-inch">in</label>
+
+                        </section>
+
+                        <section class="section-weight">
+
+                            <input type="number" min="0" max="800" class="question--weight question--weight--lbs" id="weight-lb">
+                            <label for="weight-lb">lbs</label>
+
+                        </section>
+
+                    </div>
+
+                    <div class="question__input-container" id="input-container-metric">
+
+                        <section class="section-height u-margin-bottom-small">
+
+                            <input type="number" min="0" max="250" class="question--height question--height--cm" id="height-cm">
+                            <label for="height-cm">cm</label>
+
+                        </section>
+
+                        <section class="section-weight">
+
+                            <input type="number" min="0" max="800" class="question--weight question--weight--kg" id="weight-kg">
+                            <label for="weight-kg">kg</label>
+
+                        </section>
+
+                    </div>
+
+                    <div class="question__btn-container question__btn-container--small">
+
+                        <button class="btn btn--white btn--animated" id="btn-unit-switch">Switch Units</button>
+
+                        <button class="btn btn--white btn--animated btn--progress" id="btn-q1">Next</button>
+
+                    </div>
+
+                    <!-- <button class="btn btn--white btn--animated" id="btn-next-1">Next</button>
+                    <button class="btn btn--white btn--animated" id="btn-back-1">Back</button> -->
+
+                </article>
+
+                <article class="question" id="q-2">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            How many years of fitness experience do you have?
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">While prior fitness experience isn't vital, it will help us get a better understanding of where we can get started</p>
+
+                    <div class="question__btn-container">
+                        <button class="btn btn--white btn--animated btn-q2">2 or less</button>
+                        <button class="btn btn--white btn--animated btn-q2">3 to 4</button>
+                        <button class="btn btn--white btn--animated btn-q2">Over 5</button>
+                    </div>
+
+                </article>
+
+                <article class="question" id="q-3">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            Q3
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">EXPLAINATION HERE</p>
+
+                    <div class="question__btn-container">
+                        <button class="btn btn--white btn--animated btn-q0">Under 20</button>
+                        <button class="btn btn--white btn--animated btn-q0">20 - 30</button>
+                        <button class="btn btn--white btn--animated btn-q0">30 - 40</button>
+                        <button class="btn btn--white btn--animated btn-q0">40 - 50</button>
+                        <button class="btn btn--white btn--animated btn-q0">50 - 60</button>
+                        <button class="btn btn--white btn--animated btn-q0">Over 60</button>
+                    </div>
+
+                </article>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</body>
+    <script src="script.js"></script>
+</html>
