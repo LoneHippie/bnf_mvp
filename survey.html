@@ -66,12 +66,13 @@
             </section>
 
             <section class="survey-tracker">
-                <div class="survey-tracker__blip"></div>
-                <div class="survey-tracker__blip"></div>
-                <div class="survey-tracker__blip"></div>
-                <div class="survey-tracker__blip"></div>
-                <div class="survey-tracker__blip"></div>
-                <div class="survey-tracker__blip"></div>
+                <div class="survey-tracker__blip" id="blip-0"></div>
+                <div class="survey-tracker__blip" id="blip-1"></div>
+                <div class="survey-tracker__blip" id="blip-2"></div>
+                <div class="survey-tracker__blip" id="blip-3"></div>
+                <div class="survey-tracker__blip" id="blip-4"></div>
+                <div class="survey-tracker__blip" id="blip-5"></div>
+                <div class="survey-tracker__blip" id="blip-6"></div>
             </section>
 
             <section class="survey-body">
@@ -147,11 +148,8 @@
                     </div>
 
                     <div class="question__btn-container question__btn-container--small">
-
                         <button class="btn btn--white btn--animated" id="btn-unit-switch">Switch Units</button>
-
                         <button class="btn btn--white btn--animated btn--progress" id="btn-q1">Next</button>
-
                     </div>
 
                     <!-- <button class="btn btn--white btn--animated" id="btn-next-1">Next</button>
@@ -181,19 +179,152 @@
 
                     <div class="question__title">
                         <h2 class="heading-secondary">
-                            Q3
+                            What's your preferred workout setting?
                         </h2>
                     </div>
 
-                    <p class="question__paragraph u-margin-top-small">EXPLAINATION HERE</p>
+                    <p class="question__paragraph u-margin-top-small">Based on your preffered workout environment we can find the best workouts to suite your personal preferences and available options</p>
+
+                    <div class="question__btn-container question__btn-container--small">
+                        <button class="btn btn--white btn--animated btn-q3" id="q3-indoor">Indoors</button>
+                        <button class="btn btn--white btn--animated btn-q3" id="q3-outdoor">Outdoors</button>
+                    </div>
+
+                </article>
+
+                <article class="question" id="q-4">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            What equipment do you have?
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">Knowing what kind of workout equipment you currently have access to will help us narrow down what workouts to include in your program</p>
+
+                    <div class="question__btn-container question__btn-container--small">
+                        <button class="btn btn--white btn--animated btn-q4" id="q4-0">Full gym</button>
+                        <button class="btn btn--white btn--animated btn-q4" id="q4-1">Partial gym</button>
+                        <button class="btn btn--white btn--animated btn-q4" id="q4-2">Some gear</button>
+                        <button class="btn btn--white btn--animated btn-q4" id="q4-3">No gear</button>
+                    </div>
+
+                </article>
+
+                <article class="question" id="q-5">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            What's your fitness goal?
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">By getting to know your personal goals for fitness we can provide the most useful workouts for your specific needs</p>
 
                     <div class="question__btn-container">
-                        <button class="btn btn--white btn--animated btn-q0">Under 20</button>
-                        <button class="btn btn--white btn--animated btn-q0">20 - 30</button>
-                        <button class="btn btn--white btn--animated btn-q0">30 - 40</button>
-                        <button class="btn btn--white btn--animated btn-q0">40 - 50</button>
-                        <button class="btn btn--white btn--animated btn-q0">50 - 60</button>
-                        <button class="btn btn--white btn--animated btn-q0">Over 60</button>
+                        <button class="btn btn--white btn--animated btn-q5" id="q5-0">General fitness</button>
+                        <button class="btn btn--white btn--animated btn-q5" id="q5-1">Conditioning</button>
+                        <button class="btn btn--white btn--animated btn-q5" id="q5-2">Sports</button>
+                    </div>
+
+                </article>
+
+                <article class="question" id="q-6">
+
+                    <div class="question__title">
+                        <h2 class="heading-secondary">
+                            Do you have any injuries?
+                        </h2>
+                    </div>
+
+                    <p class="question__paragraph u-margin-top-small">This question will help us eliminate exercises you may be unable to perform currently or even find exercises to help rehabilitate lighter injuries</p>
+
+                    <div class="question__check-container">
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-head">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-head">Head</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-shoulders">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-shoulders">Shoulders</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-arms">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-arms">Arms</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-hands">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-hands">Hands</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-chest">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-chest">Chest</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-abdomin">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-abdomin">Abdomin</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-hips">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-hips">Hips</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-glutes">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-glutes">Glutes</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-quadriceps">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-quadriceps">Quadriceps</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-hamstring">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-hamstring">Hamstring</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-calves">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-calves">Calves</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-ankles">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-ankles">Ankles</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-feet">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-feet">Feet</label>
+                        </div>
+
+                        <div class="check-el">
+                            <input type="checkbox" class="question__checkbox" id="check-none">
+                            <span class="question__checkbox--custom"></span>
+                            <label for="check-none">None</label>
+                        </div>
+
                     </div>
 
                 </article>

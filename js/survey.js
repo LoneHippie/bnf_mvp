@@ -1,7 +1,7 @@
 //DOM shortcuts
 
 const surveyUI = {
-    question: [document.getElementById('q-0'), document.getElementById('q-1'), document.getElementById('q-2'), document.getElementById('q-3')],
+    question: [document.getElementById('q-0'), document.getElementById('q-1'), document.getElementById('q-2'), document.getElementById('q-3'), document.getElementById('q-4'), document.getElementById('q-5'), document.getElementById('q-6')],
     next: [document.getElementById('btn-next-0'), document.getElementById('btn-next-1'), undefined],
     back: [undefined, document.getElementById('btn-back-1'), document.getElementById('btn-back-2')],
     measureImperial: document.getElementById('input-container-imperial'),
@@ -17,7 +17,10 @@ const surveyUI = {
 
     next0: document.getElementsByClassName('btn-q0'),
     next1: document.getElementById('btn-q1'),
-    next2: document.getElementsByClassName('btn-q2')
+    next2: document.getElementsByClassName('btn-q2'),
+    next3: document.getElementsByClassName('btn-q3'),
+    next4: document.getElementsByClassName('btn-q4'),
+    next5: document.getElementsByClassName('btn-q5')
 };
 
 const hwDataImperial = [surveyUI.inputFt, surveyUI.inputIn, surveyUI.inputLb];
@@ -30,20 +33,34 @@ for (i = 0; i < surveyUI.question.length; i++) {
 surveyUI.question[0].classList.add('active');
 
 //front-end functionality
+function btnNext(next, n) {
+    for (i = 0; i < next.length; i++) {
+        next[i].addEventListener('click', function() {
+            surveyUI.question[n].classList.remove('active');
+            surveyUI.question[n + 1].classList.add('active');
 
-//next for question 0
-for (i = 0; i < surveyUI.next0.length; i++) {
-    surveyUI.next0[i].addEventListener('click', function() {
-        surveyUI.question[0].classList.remove('active');
-        surveyUI.question[1].classList.add('active');
-    });
-};
+            document.getElementById('blip-' + [n]).classList.add('filled');
+        });
+    };
+}
+
+//next for multi-option questions
+btnNext(surveyUI.next0, 0);
+btnNext(surveyUI.next2, 2);
+btnNext(surveyUI.next3, 3);
+btnNext(surveyUI.next4, 4);
+btnNext(surveyUI.next5, 5);
 
 //next for question 1
 surveyUI.next1.addEventListener('click', function() {
     surveyUI.question[1].classList.remove('active');
     surveyUI.question[2].classList.add('active');
+
+    document.getElementById('blip-1').classList.add('filled');
+
+    clearInterval(measureFormCheck); //stop interval function for checking form fill status
 });
+
 
 //button for switching between metric and imperial measurement (question 1)
 surveyUI.btnMeasureSwitch.addEventListener('click', function() {
@@ -64,8 +81,10 @@ surveyUI.btnMeasureSwitch.addEventListener('click', function() {
     
 });
 
-//check to see if all fields are filled
-setInterval(() => { //find a way to make this interval only run while question[1] is active
+//check to see if all fields are filled (question 1)
+let measureFormCheck = setInterval(() => { //find a way to make this interval only run while question[1] is active
+
+    // console.log('checking...'); //delete later
 
     if (surveyUI.measureImperial.classList.contains('active')) {
         let checkImp = hwDataImperial.every(el => el.value !== '');
@@ -89,9 +108,3 @@ setInterval(() => { //find a way to make this interval only run while question[1
 
 }, 500);
 
-for (i = 0; i < surveyUI.next2.length; i++) {
-    surveyUI.next2[i].addEventListener('click', function() {
-        surveyUI.question[2].classList.remove('active');
-        surveyUI.question[3].classList.add('active');
-    });
-};
