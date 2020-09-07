@@ -1,0 +1,57 @@
+.header {
+    height: 95vh;
+
+    background-image: linear-gradient(to right bottom, 
+            rgba($color-primary-light, 0.801),
+            rgba($color-primary-dark-1, 0.808)), 
+            url(../img/background-iceburg1.jpg);
+
+    background-size: cover;
+    background-position: top;
+
+    position: relative;
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
+
+    z-index: 50;
+
+    @include respond(breakSmall4) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); 
+    }
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+
+        padding: 3rem;
+        background: $color-white;
+
+        border-radius: 100%;
+
+        animation: logoDrop 1500ms ease-out;
+    }
+
+    &__logo {
+        height: 15rem;
+        width: 15rem;
+
+        @include respond(breakSmall2) {
+            height: 12rem;
+            width: 12rem;
+        }
+
+        border-radius: 20px;
+
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

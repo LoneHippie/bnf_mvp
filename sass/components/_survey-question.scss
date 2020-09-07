@@ -1,0 +1,269 @@
+.question {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    &__title {
+        text-align: center;
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        padding-top: 1.75rem;
+        padding-bottom: 4rem;
+        background: $color-white;
+
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+
+    }
+
+    &__paragraph {
+        font-size: 2.25rem;
+        padding: 0 3rem;
+    }
+
+    &__btn-container {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 5rem;
+        display: grid;
+        grid-template-rows: repeat(2, 1 fr);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 25px;
+
+        &--small {
+            grid-template-rows: repeat(2, 1 fr);
+            grid-template-columns: 1fr 1fr;
+            width: 60%;
+        }
+
+        &--single {
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr;
+            width: 40%;
+        }
+    }
+
+    &__check-container {
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 5rem;
+        display: grid;
+        grid-template-rows: repeat(5, 1 fr);
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    input[type=checkbox] {
+        transform: scale(2.5);
+    }
+
+    &__checkbox {
+        position: absolute;
+        display: block;
+        left: 46.25%;
+        top: 10%;
+        transform: translate(-50%, -50%);
+
+        opacity: 0;
+        z-index: 100;
+        cursor: pointer;
+
+        &--custom {
+            position: absolute;
+            display: block;
+            left: 50%;
+            top: 20%;
+            transform: translate(-50%, -50%);
+
+            width: 24px;
+            height: 24px;
+            background-color: transparent;
+            border-radius: 6px;
+            border: 2px solid $color-white;
+
+            &::after {
+                position: absolute;
+                content: "";
+                left: 12px;
+                top: 12px;
+                height: 0;
+                width: 0;
+                border-radius: 6px;
+                border: solid $color-primary-light;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(0deg) scale(0);
+                -ms-transform: rotate(0deg) scale(0);
+                transform: rotate(0deg) scale(0);
+                opacity: 1;
+            }
+
+        }
+
+        &:checked ~ &--custom { //filled checkbox
+            background-color: $color-white;
+            border-radius: 6px;
+            -webkit-transform: rotate(0deg) scale(1);
+            -ms-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+
+            left: 50%;
+            top: 20%;
+            transform: translate(-50%, -50%);
+
+            opacity: 1;
+            border: 2px solid $color-white;
+        }
+        &:checked ~ &--custom::after { //checkmark
+            -webkit-transform: rotate(45deg) scale(1);
+            -ms-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+            opacity: 1;
+            left: 6.5px;
+            top: 3px;
+            width: 8px;
+            height: 12px;
+            border: solid $color-primary-light;
+            border-width: 0 3px 3px 0;
+            background-color: transparent;
+            border-radius: 0;
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+        &:disabled ~ &--custom {
+            border: 2px solid $color-gray-dark;
+            transition: all 300ms;
+        }
+        &:disabled ~ label {
+            background: linear-gradient(to bottom right,
+            $color-primary, $color-primary-dark-1, $color-primary-dark-2);
+            color: $color-gray-dark;
+        }
+        
+    }
+
+    &__input-container {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-size: 2.2rem;
+    }
+
+    &__input-container.active {
+        display: flex;
+    }
+
+    &--height {
+        font-size: 2.2rem;
+        color: $color-primary-light;
+        padding: 0.2rem 0.5rem;
+        width: 6rem;
+        text-align: center;
+        border-radius: 7px;
+        box-shadow: 2px 2px 8px rgba($color-black, 0.5);
+    }
+    &--height--cm {
+        width: 12rem;
+    }
+    &--weight {
+        font-size: 2.2rem;
+        color: $color-primary-light;
+        padding: 0.2rem 0.5rem;
+        width: 12rem;
+        text-align: center;
+        border-radius: 7px;
+        box-shadow: 2px 2px 8px rgba($color-black, 0.5);
+    }
+    
+}
+
+.check-el {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 2px solid $color-white;
+    border-radius: 8px;
+
+    & > label {
+        display: block;
+        padding-top: 2rem;
+        margin-top: 1.25rem;
+        font-size: $default-font-size;
+        background: linear-gradient(to bottom right,
+        $color-primary-light, $color-primary-dark-1);
+    }
+}
+
+#q-0 {
+    display: none;
+}
+#q-0.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}
+
+#q-1 {
+    display: none;
+}
+#q-1.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}
+
+#q-2 {
+    display: none;
+}
+#q-2.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}
+
+#q-3 {
+    display: none;
+}
+#q-3.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}
+
+#q-4 {
+    display: none;
+}
+#q-4.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}
+
+#q-5 {
+    display: none;
+}
+#q-5.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}
+
+#q-6 {
+    display: none;
+}
+#q-6.active {
+    display: flex;
+
+    animation: questionIn 1000ms ease-out;
+}

@@ -1,0 +1,53 @@
+.info-box {
+    width: 75%;
+    color: $color-white;
+
+    &--mobile {
+        @include respond(breakSmall5) {
+            width: 100% !important;
+            font-size: 3rem;
+        }
+    }
+}
+
+.benefits {
+    color: $color-white;
+    font-size: $default-font-size;
+
+    @include respond(breakSmall1) {
+        margin-left: 2rem;
+    }
+    @include respond(breakSmall5) {
+        font-size: 3rem;
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+
+    & > ul {
+        
+        @include respond(breakSmall5) {
+            list-style: none;
+            margin-bottom: 4rem;
+            margin-right: 0;
+        }
+
+        & > li {
+            padding: 0rem 1rem;
+            margin-left: -1rem;
+
+            @include respond(breakSmall1) {
+                padding: 0rem;
+            }
+
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 240%;
+    
+            transition: all 400ms;
+
+            &:hover {
+                background-position: 100%;
+                color: $color-primary;
+            }
+        }
+    }
+}

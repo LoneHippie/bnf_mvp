@@ -1,0 +1,185 @@
+.pop-up {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, 0.8);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 200ms;
+
+    z-index: 2000;
+
+    &--active {
+        opacity: 1;
+        visibility: visible;
+
+        transition: all 400ms;
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        padding: 3rem 0;
+        color: $color-white;
+
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+
+        @include respond(breakSmall5) {
+            width: 90%;
+        }
+        @include respond(breakSmall8) {
+            width: 97%;
+            padding: 3rem 0;
+        }
+
+        &--general {
+            background: linear-gradient(to bottom right,
+            rgba($color-primary-light, 0.9), $color-primary-dark-1);
+        }
+        
+        &--about {
+            background-image: linear-gradient(175deg,
+                rgba($color-white, 0.95) 0%,
+                rgba($color-white, 0.9) 44.5%,
+                transparent 45%),
+            linear-gradient(to bottom right,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark-1, 0.8)),
+                url(../img/background-ice1.jpg);
+
+            background-position: center;
+            background-size: cover;
+        }
+
+        &--method {
+            background-image: linear-gradient(175deg,
+                transparent 44%,
+                rgba($color-white, 0.9) 45%,
+                rgba($color-white, 1) 100%),
+            linear-gradient(to bottom right,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark-1, 0.8)),
+                url(../img/background-ice1.jpg),;
+
+            background-position: center;
+            background-size: cover;
+        }
+
+        &--unrestricted {
+            background-image: linear-gradient(97.5deg,
+                rgba($color-white, 0.95) 0%,
+                rgba($color-white, 0.9) 47.75%,
+                transparent 48%),
+                linear-gradient(to bottom right,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark-1, 0.8)),
+                url(../img/background-ice1.jpg);
+
+            background-position: center;
+            background-size: cover;
+
+            @include respond(breakSmall7) {
+                background-image: linear-gradient(92.5deg,
+                rgba($color-white, 0.95) 0%,
+                rgba($color-white, 0.9) 57.75%,
+                transparent 58%),
+                linear-gradient(to bottom right,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark-1, 0.8)),
+                url(../img/background-ice1.jpg);
+            }
+        }
+
+        &--team {
+            background: linear-gradient(to bottom left,
+            $color-primary-light, $color-primary-dark-1);
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: -1rem;
+        right: 3rem;
+        font-size: 6rem;
+
+        &--primary {
+            color: $color-primary;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__paragraph {
+        display: block;
+        font-size: $default-font-size;
+        font-weight: 500;
+
+        @include respond(breakSmall6) {
+            font-size: 2.5rem;
+        }
+
+        @include respond(breakSmall8) {
+            font-size: 2.25rem;
+        }
+
+        &--primary {
+            color: $color-primary;
+        }
+
+        &--unrestricted {
+            color: $color-primary;
+            margin-right: 6rem;
+            width: 50%;
+
+            @include respond(breakSmall7) {
+                margin-right: 3rem;
+            }
+        }
+    }
+
+    &__images {
+        display: block;
+        // border: 2px solid magenta;
+        height: 15rem;
+
+        margin: 4rem 15rem;
+        margin-bottom: 8rem;
+    }
+
+    &__logo-box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        padding: 10rem;
+        background: $color-white;
+
+        border-radius: 100%;
+
+        filter: blur(1.5px);
+    }
+
+    &__logo {
+        height: 35rem;
+
+        width: 35rem;
+
+        border-radius: 20px;
+
+        filter: blur(2px);
+
+    }
+}
+
+
+

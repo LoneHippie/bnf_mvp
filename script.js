@@ -11,7 +11,7 @@ function loadScript(url) {
 
 let curFile = location.href.split("/").slice(-1);
 
-if (curFile == '') { //curFile corection
+if (curFile == '' || curFile == 'index.html#about' || curFile == 'index.html#reviews' || curFile == 'index.html#payment' || curFile == 'index.html#contact') { //curFile corection
     curFile = "index.html"
 };
 

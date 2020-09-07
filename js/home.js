@@ -40,9 +40,18 @@ closes.forEach((el, index) => {
     })
 });
 
-document.getElementById('nav-toggle').addEventListener('click', function() {
-    console.log('toggle');
-    if (document.getElementById('nav-toggle').checked == true) {
-        console.log('opened menu')
-    }
-})
+// document.getElementById('nav-toggle').addEventListener('click', function() {
+//     console.log('toggle');
+//     if (document.getElementById('nav-toggle').checked == true) {
+//         console.log('opened menu')
+//     }
+// });
+
+//for auto-closing nav after selecting a link
+const navLink = document.getElementsByClassName('navigation__link');
+
+for (i = 0; i < navLink.length; i++) {
+    navLink[i].addEventListener('click', function() {
+        document.getElementById('nav-toggle').checked = false;
+    });
+};

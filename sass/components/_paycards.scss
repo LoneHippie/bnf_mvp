@@ -1,0 +1,116 @@
+.pay-card {
+    width: 30%;
+    text-align: center;
+    //height: 20rem; //replace later with more layout friendly number/unit
+    margin: 0rem 0.75rem;
+    border: 1px solid $color-white;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: linear-gradient(to bottom right,
+    rgba($color-primary-light, 0.3),
+    rgba($color-primary-dark-1, 0.6));
+
+    box-shadow: $shadow-light;
+
+    transition: transform 200ms;
+
+    @include respond(breakSmall5) {
+        width: 70%;
+        margin: 0 auto;
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+    }
+    @include respond(breakSmall6) {
+        width: 80%;
+    }
+
+    &:hover .pay-card__saving {
+        display: block;
+
+        animation: slideRightShort 300ms;
+    }
+
+    &:hover {
+        transform: translateY(-15px);
+
+        box-shadow: 2px 12px 20px rgba(16, 22, 29, 0.692);
+
+        margin-bottom: -4rem;
+
+        @include respond(breakSmall5) {
+            transform: translateY(0) translateX(15px);
+            margin-bottom: 2.6rem;
+        }
+
+        transition: transform 300ms;
+    }
+
+    &__title {
+        display: block;
+        padding-top: 1.2rem;
+        padding-bottom: 2.5rem;
+        font-size: 4.5rem;
+        text-transform: uppercase;
+        color: $color-white;
+        //option 1: flat border
+        //border-bottom: 2px solid $color-white;
+
+        //option 2: clip path gradient
+        background: linear-gradient(to bottom left,
+        rgba($color-primary, 0.25),
+        rgba($color-primary-dark-1, 0.8));
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+
+        @include respond(breakSmall5) {
+            font-size: 6rem;
+        }
+
+        &:hover {
+            cursor: default;
+        }
+    }
+    &__cost {
+        display: block;
+        margin-top: 2.2rem;
+        font-size: 7.5rem;
+        font-family: $font-price;
+        font-weight: 500;
+        color: $color-white;
+        text-shadow: $shadow-light;
+
+        @include respond(breakSmall5) {
+            font-size: 10rem;
+        }
+
+        sup {
+            vertical-align: baseline;
+            position: relative;
+            top: -1.5rem;
+            font-size: 5.5rem;
+
+            @include respond(breakSmall5) {
+                font-size: 7rem;
+                top: -2rem;
+            }
+        }
+
+        &:hover {
+            cursor: default;
+        }
+    }
+    &__saving {
+        display: none;
+        color: $color-primary-light;
+        text-shadow: $shadow-light;
+        font-size: 3rem;
+        margin-bottom: -2rem;
+
+        &:hover {
+            cursor: default;
+        }
+    }
+}

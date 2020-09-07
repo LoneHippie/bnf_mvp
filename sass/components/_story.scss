@@ -1,0 +1,88 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.25);
+
+    background: linear-gradient(to bottom left,
+    $color-primary-light, $color-primary-dark-1);
+
+    border-radius: 5px;
+    padding: 6rem;
+
+    font-size: $default-font-size;
+
+    transform: skewX(-12deg);
+
+    @include respond(breakSmall6) {
+        transform: skewX(-9deg);
+        width: 80%;
+        font-size: 2.6rem;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+
+        transition: all 500ms;
+    }
+
+    &:hover &__image {
+        transform: translateX(1rem) scale(1);
+        filter: blur(2px) brightness(80%);
+
+        transition: all 500ms;
+    }
+
+    & > * {
+        transform: skewX(12deg);
+
+        @include respond(breakSmall6) {
+            transform: skewX(9deg);
+        }
+    }
+
+    &__shape {
+        position: relative;
+        width: 15rem;
+        height: 15rem;
+
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+
+        transform: translateX(-3rem) skewX(12deg);
+    }
+
+    &__image {
+        height: 10rem;
+        transform: scale(1.2) translateX(3rem);
+
+        backface-visibility: hidden;
+
+        transition: all 200ms;
+    }
+
+    &__text {
+        color: $color-white;
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+
+        backface-visibility: hidden;
+
+        opacity: 0;
+
+        transition: all 200ms;
+    }
+}
