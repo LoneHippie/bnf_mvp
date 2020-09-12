@@ -1,7 +1,8 @@
-//DOM shortcuts
+//Functionality for survey page
 
 const front = (function() {
 
+    //DOM shortcuts
     const surveyUI = {
         title: [document.getElementById('title-q0-q2'), document.getElementById('title-q3-q5'), document.getElementById('title-q6')],
 
@@ -199,12 +200,12 @@ const dataBase = (function() {
     }
 
     //db - isolation
-    const WO1 = new Workout('Dumbbell Overhead Press', 0, ['shoulder'], 0, 2, 1);
-    const WO2 = new Workout('Lateral Raises', 0, ['shoulder'], 0, 2, 1);
-    const WO3 = new Workout('Front Raises', 0, ['shoulder'], 0, 2, 1);
-    const WO4 = new Workout('Rear Delt Flys', 0, ['shoulder'], 0, 2, 1);
-    const WO5 = new Workout('Arnold Press', 0, ['shoulder'], 0, 2, 1);
-    const WO6 = new Workout('Around The World', 0, ['shoulder'], 0, 2, 1);
+    const WO1 = new Workout('Dumbbell Overhead Press', 0, ['shoulders'], 0, 2, 1);
+    const WO2 = new Workout('Lateral Raises', 0, ['shoulders'], 0, 2, 1);
+    const WO3 = new Workout('Front Raises', 0, ['shoulders'], 0, 2, 1);
+    const WO4 = new Workout('Rear Delt Flys', 0, ['shoulders'], 0, 2, 1);
+    const WO5 = new Workout('Arnold Press', 0, ['shoulders'], 0, 2, 1);
+    const WO6 = new Workout('Around The World', 0, ['shoulders'], 0, 2, 1);
     const WO7 = new Workout('Bumbbell Bicep Curls', 0, ['bicep'], 0, 2, 1);
     const WO8 = new Workout('Reverse Grip Curls', 0, ['bicep'], 0, 2, 1);
     const WO9 = new Workout('Hammer Curls', 0, ['bicep'], 0, 2, 1);
@@ -250,8 +251,8 @@ const dataBase = (function() {
     const WO47 = new Workout('Bench Press', 1, ['chest', 'arms'], 0, 0, 2);
     const WO48 = new Workout('Hip Thrusts', 1, ['legs'], 0, 0, 1);
     const WO49 = new Workout('Clean and Jerk', 1, ['full body'], 0, 0, 3);
-    const WO50 = new Workout('Dips', 1, ['arms', 'chest', 'shoulder'], 0, 2, 1);
-    const WO51 = new Workout('Planks', 1, ['core', 'shoulder'], 1, 2, 0);
+    const WO50 = new Workout('Dips', 1, ['arms', 'chest', 'shoulders'], 0, 2, 1);
+    const WO51 = new Workout('Planks', 1, ['core', 'shoulders'], 1, 2, 0);
     const WO52 = new Workout('Wall Sits', 1, ['legs', 'core'], 1, 2, 0);
     const WO53 = new Workout('Jump Rope', 1, ['full body'], 1, 2, 1);
     const WO54 = new Workout('Burpees', 1, ['full body'], 0, 2, 0);
@@ -286,6 +287,7 @@ const dataBase = (function() {
 const algorithm = (function() {
 
     let arrInput = dataBase.allWorkouts(); //all workout instances in array
+    let frontClass = front.surveyEL().surveyUI;
 
     const userProfile = { //obj containing answers and values that will be used to reduce arrInput
         age: undefined,
@@ -295,6 +297,7 @@ const algorithm = (function() {
         preference: undefined,
         gear: undefined,
         goals: undefined,
+        injuries: undefined,
 
         fitCalc: function() {
             if (this.bmi < 25) {
@@ -336,8 +339,8 @@ const algorithm = (function() {
             a0: document.getElementById('q5-a0'), //general fitness
             a1: document.getElementById('q5-a1'), //conditioning
             a2: document.getElementById('q5-a2') //sport
-        }
-
+        },
+        q6: document.getElementById('btn-final')
     }
 
     //handling obj prop for q0
@@ -345,50 +348,50 @@ const algorithm = (function() {
         switch(event.target) {
             case inputUI.q0.a0:
                 userProfile.age = 1;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q0.a1:
                 userProfile.age = 1;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q0.a2:
                 userProfile.age = 2;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q0.a3:
                 userProfile.age = 2;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q0.a4:
                 userProfile.age = 3;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q0.a5:
                 userProfile.age = 3;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break; 
         }
     });
 
     //handling obj prop for q1
     inputUI.q1.addEventListener('click', function() {
-        if (front.surveyEL().surveyUI.measureImperial.classList.contains('active')) {
-            let height = (front.surveyEL().surveyUI.inputFt.value * 12) + (front.surveyEL().surveyUI.inputIn.value * 1);
-            let weight = (front.surveyEL().surveyUI.inputLb.value * 1);
+        if (frontClass.measureImperial.classList.contains('active')) {
+            let height = (frontClass.inputFt.value * 12) + (frontClass.inputIn.value * 1);
+            let weight = (frontClass.inputLb.value * 1);
 
             userProfile.bmi = parseFloat(((weight / (height * height)) * 703).toFixed(2));
             userProfile.fitCalc();
 
-            console.log(userProfile);
+            // console.log(userProfile);
 
-        } else if (front.surveyEL().surveyUI.measureMetric.classList.contains('active')) {
-            let height = (front.surveyEL().surveyUI.inputCm.value * 1);
-            let weight = (front.surveyEL().surveyUI.inputKg.value * 1);
+        } else if (frontClass.measureMetric.classList.contains('active')) {
+            let height = (frontClass.inputCm.value * 1);
+            let weight = (frontClass.inputKg.value * 1);
 
             userProfile.bmi = parseFloat(((weight / height / height) * 10000).toFixed(2));
             userProfile.fitCalc();
 
-            console.log(userProfile);
+            // console.log(userProfile);
 
         }
     });
@@ -398,15 +401,15 @@ const algorithm = (function() {
         switch(event.target) {
             case inputUI.q2.a0:
                 userProfile.experience = 3;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q2.a1:
                 userProfile.experience = 2;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q2.a2:
                 userProfile.experience = 1;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break; 
         }
     });
@@ -416,11 +419,11 @@ const algorithm = (function() {
         switch(event.target) {
             case inputUI.q3.a0:
                 userProfile.preference = 'indoors';
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q3.a1:
                 userProfile.preference = 'outdoors';
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
         }
     });
@@ -430,19 +433,19 @@ const algorithm = (function() {
         switch(event.target) { //0,1,2,3 will match up with the tags for the workouts. 0 = no gear, 3 = full gym
             case inputUI.q4.a0:
                 userProfile.gear = 3;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q4.a1:
                 userProfile.gear = 2;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q4.a2:
                 userProfile.gear = 1;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q4.a3:
                 userProfile.gear = 0;
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
         }
     });
@@ -452,17 +455,130 @@ const algorithm = (function() {
         switch(event.target) {
             case inputUI.q5.a0:
                 userProfile.goals = 'general fitness';
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q5.a1:
                 userProfile.goals = 'conditioning';
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
             case inputUI.q5.a2:
                 userProfile.goals = 'sports';
-                console.log(userProfile);
+                // console.log(userProfile);
                 break;
         }
+    });
+
+    //handling obj prop for q6
+    inputUI.q6.addEventListener('click', function() {
+
+        if (frontClass.checkNone.checked == true) {
+            userProfile.injuries = 'none';
+            console.log(userProfile);
+        } else {
+            let selected = Array.from(frontClass.checkPart).filter(el => el.checked == true);
+
+            selected = selected.map(el => el.value);
+
+            if (selected.includes('quadriceps') || selected.includes('hamstring') || selected.includes('calves') || selected.includes('ankles') || selected.includes('feet')) {
+                selected.push('legs');
+            };
+
+            if (selected.includes('arms')) {
+                selected.push('bicep');
+                selected.push('tricep');
+            };
+
+            if (selected.includes('hands')) {
+                selected.push('grip');
+            };
+
+            userProfile.injuries = selected;
+
+            console.log(userProfile);
+        }
+    });
+
+    //handling DB reduction based on obj props
+    inputUI.q6.addEventListener('click', function() {
+
+        let generalFitness = (userProfile.age + userProfile.fitness + userProfile.experience) / 3;
+
+        let reduceIn1;
+        let reduceIn2;
+
+        //adjustments for indoor/outdoor preference
+        if (userProfile.preference == 'indoors') {
+            reduceIn1 = arrInput.filter(el => el.location !== 1);
+        } else if (userProfile.preference == 'outdoors') {
+            reduceIn1 = arrInput.filter(el => el.location !== 0);
+        };
+
+        //one line adjustments for gear
+        reduceIn2 = reduceIn1.filter(el => el.equipment <= userProfile.gear);
+
+        //injury adjustments for primary body parts
+        if (frontClass.checkNone.checked == false) {
+
+            //looping in reverse helps avoid "skipping" issue due to array length changes
+            for (i = reduceIn2.length - 1; i > 0; i--) {
+                if (userProfile.injuries.includes(reduceIn2[i].subType[0])) {
+                    console.log(`removed: ${reduceIn2[i].name}: ${reduceIn2[i].subType[0]}`);
+                    reduceIn2.splice(i, 1);
+                }
+            };
+
+            //for catching potential exceptions in index 0 after restructuring
+            if (userProfile.injuries.includes(reduceIn2[0].subType[0])) reduceIn2.shift();
+
+        };
+
+        //for adjusting reps once workout list has been narrowed (currently using reduceIn2)
+        if (generalFitness >= 1.7 && generalFitness < 2.5) {
+            reduceIn2.forEach((el) => {
+                if (el.activity == 1) {
+                    el.reps -= 15;
+                } 
+
+                if (el.activity == 0) {
+                    for (i = 0; i < el.reps[0].length; i++) {
+                        el.reps[0][i] -= 2;
+                    }
+                    for (i = 0; i < el.reps[1].length; i++) {
+                        el.reps[1][i] -= 10;
+                    }
+                    for (i = 0; i < el.reps[2].length; i++) {
+                        el.reps[2][i] -= 10;
+                    }
+                }
+            });
+        } else if (generalFitness >= 2.5) {
+            reduceIn2.forEach((el) => {
+                if (el.activity == 1) {
+                    el.reps -= 30;
+                } 
+
+                if (el.activity == 0) {
+                    for (i = 0; i < el.reps[0].length; i++) {
+                        el.reps[0][i] -= 4;
+                    }
+                    for (i = 0; i < el.reps[1].length; i++) {
+                        el.reps[1][i] -= 20;
+                    }
+                    for (i = 0; i < el.reps[2].length; i++) {
+                        el.reps[2][i] -= 15;
+                    }
+                }
+            });
+        };
+
+        console.log(`${reduceIn2.length} Workouts:`);
+
+        console.log('Isolation:');
+        console.log(reduceIn2.filter(el => el.type == 0));
+
+        console.log('Compound:');
+        console.log(reduceIn2.filter(el => el.type == 1));
+
     });
 
 })();
