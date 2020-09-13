@@ -54,6 +54,15 @@
   100% {
     transform: translate(0); } }
 
+@keyframes titleIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-25rem); }
+  50% {
+    opacity: 1; }
+  100% {
+    transform: translate(0); } }
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -574,14 +583,14 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 10rem;
+    padding: 2rem;
     background: #fff;
-    border-radius: 100%;
-    filter: blur(1.5px); }
+    border-radius: 50%;
+    border: 0.4rem solid #27496d;
+    filter: blur(1.2px); }
   .pop-up__logo {
     height: 35rem;
     width: 35rem;
-    border-radius: 20px;
     filter: blur(2px); }
 
 .regimin-example {
@@ -944,18 +953,18 @@ body {
     position: absolute;
     top: 4rem;
     left: 4rem;
-    padding: 3rem;
+    padding: 1rem;
+    border: 0.4rem solid #27496d;
     background: #fff;
-    border-radius: 100%;
+    border-radius: 50%;
     animation: logoDrop 1500ms ease-out; }
   .header__logo {
     height: 15rem;
-    width: 15rem;
-    border-radius: 20px; }
+    width: 15rem; }
     @media (max-width: 59em) {
       .header__logo {
-        height: 12rem;
-        width: 12rem; } }
+        height: 13.5rem;
+        width: 13.5rem; } }
   .header__text-box {
     position: absolute;
     top: 40%;
@@ -1024,6 +1033,9 @@ body {
     text-align: center;
     width: 70%;
     margin-top: -10rem; }
+    @media (max-width: 46.25em) {
+      .footer-content__info {
+        width: 85%; } }
   .footer-content__navigation {
     padding-top: 2rem;
     display: inline-block; }
@@ -1032,7 +1044,7 @@ body {
   .footer-content__item {
     display: inline-block; }
     .footer-content__item:not(:last-child) {
-      margin-right: 1.5rem; }
+      margin-right: 2.75rem; }
   .footer-content__link:link, .footer-content__link:visited {
     color: #fff;
     text-decoration: none;
@@ -1062,9 +1074,18 @@ body {
     padding-top: 2rem;
     display: inline-block; }
   .footer-content__logo-box {
-    padding: 3.5rem;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 0.4rem solid #27496d;
     background: #fff;
-    border-radius: 100%; }
+    border-radius: 50%; }
+  .footer-content__logo {
+    height: 15rem;
+    width: 15rem; }
+    @media (max-width: 59em) {
+      .footer-content__logo {
+        height: 13.5rem;
+        width: 13.5rem; } }
 
 .navigation__checkbox {
   display: none; }
